@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weigh-up.com — Sopesa tus Decisiones, Equilibra tu Vida</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="weigh-up.com es un espacio y herramienta digital interactiva para el crecimiento personal y la toma de decisiones consciente. Creado por Emilio Moreno.">
+    <meta name="keywords" content="weigh up, toma de decisiones, crecimiento personal, equilibrio de vida, balance de vida, mindfulness, sopesar decisiones">
+    <meta name="author" content="Emilio Moreno">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://weigh-up.com/">
+    <meta property="og:title" content="weigh-up.com — Sopesa tus Decisiones, Equilibra tu Vida">
+    <meta property="og:description" content="Herramienta interactiva para sopesar opciones y tomar decisiones en armonía con tu crecimiento personal.">
+    <meta property="og:image" content="https://weigh-up.com/assets/og-image.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Soft Ambient Light Background -->
+    <div class="ambient-glow"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo" id="logo-main">weigh-up<span class="logo-ext">.com</span></a>
+            <a href="https://emiliomoreno.com" class="nav-back" id="link-creator">
+                <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Volver a emiliomoreno.com
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <span class="hero-tag">Herramienta de Reflexión Consciente</span>
+            <h1 class="main-title">Aprende a sopesar lo <br><span class="serif-text">que verdaderamente importa.</span></h1>
+            <p class="subtitle">
+                weigh-up.com es un rincón de crecimiento personal diseñado para ayudarte a evaluar tus opciones de forma visual y equilibrada. Utiliza la balanza interactiva para poner en perspectiva tus decisiones.
+            </p>
+        </section>
+
+        <!-- Balance Scale Widget Section -->
+        <section class="scale-section">
+            
+            <!-- Dynamic SVG Balance Scale -->
+            <div class="scale-visual-container">
+                <svg id="decision-scale" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Base (Fixed) -->
+                    <path d="M185 220 L215 220 L205 120 L195 120 Z" fill="#2d3748" />
+                    <circle cx="200" cy="120" r="10" fill="#4a5568" />
+                    <rect x="150" y="220" width="100" height="8" rx="4" fill="#1a202c" />
+                    
+                    <!-- Tilting Part (Group) -->
+                    <g id="tilting-beam" style="transform-origin: 200px 120px; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);">
+                        <!-- Crossbar -->
+                        <line x1="60" y1="120" x2="340" y2="120" stroke="#718096" stroke-width="6" stroke-linecap="round" />
+                        
+                        <!-- Left Plate Strings -->
+                        <line x1="60" y1="120" x2="30" y2="175" stroke="#a0aec0" stroke-width="2" />
+                        <line x1="60" y1="120" x2="90" y2="175" stroke="#a0aec0" stroke-width="2" />
+                        <!-- Left Plate -->
+                        <path d="M25 175 L95 175 L85 180 L35 180 Z" fill="#a78bfa" />
+                        
+                        <!-- Right Plate Strings -->
+                        <line x1="340" y1="120" x2="310" y2="175" stroke="#a0aec0" stroke-width="2" />
+                        <line x1="340" y1="120" x2="370" y2="175" stroke="#a0aec0" stroke-width="2" />
+                        <!-- Right Plate -->
+                        <path d="M305 175 L375 175 L365 180 L315 180 Z" fill="#fb7185" />
+                    </g>
+                </svg>
+                <div class="scale-status" id="scale-message">Balanza en equilibrio</div>
+            </div>
+
+            <!-- Decision Inputs Grid -->
+            <div class="decision-inputs-container">
+                
+                <!-- Left Input: Pros -->
+                <div class="input-card card-pro">
+                    <h3>Aspectos Positivos (Pros)</h3>
+                    <div class="form-group">
+                        <input type="text" id="pro-text" placeholder="Ej: Aprender nuevas habilidades..." maxlength="80">
+                        <div class="weight-selector">
+                            <label for="pro-weight">Importancia:</label>
+                            <input type="range" id="pro-weight" min="1" max="5" value="3">
+                            <span class="weight-badge" id="pro-badge">3</span>
+                        </div>
+                        <button class="btn btn-add pro-btn" id="btn-add-pro">Añadir Pro</button>
+                    </div>
+                    <ul class="factors-list" id="pros-list">
+                        <!-- Dynamic items -->
+                    </ul>
+                </div>
+
+                <!-- Right Input: Cons -->
+                <div class="input-card card-con">
+                    <h3>Aspectos a Evaluar (Contras)</h3>
+                    <div class="form-group">
+                        <input type="text" id="con-text" placeholder="Ej: Requiere inversión de tiempo..." maxlength="80">
+                        <div class="weight-selector">
+                            <label for="con-weight">Importancia:</label>
+                            <input type="range" id="con-weight" min="1" max="5" value="3">
+                            <span class="weight-badge" id="con-badge">3</span>
+                        </div>
+                        <button class="btn btn-add con-btn" id="btn-add-con">Añadir Contra</button>
+                    </div>
+                    <ul class="factors-list" id="cons-list">
+                        <!-- Dynamic items -->
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy-section">
+            <div class="philosophy-grid">
+                
+                <div class="philosophy-card">
+                    <div class="card-icon">💡</div>
+                    <h3>Decisiones Conscientes</h3>
+                    <p>
+                        A menudo tomamos decisiones impulsados por emociones del momento. Escribir los pros y contras y asignarles un peso racional nos ayuda a implicar nuestra mente analítica y lograr mayor claridad.
+                    </p>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Aprender a Soltar</h3>
+                    <p>
+                        "Weigh up" significa sopesar, pero también encontrar el equilibrio. A veces, ver que los contras pesan demasiado es la confirmación que necesitamos para dejar ir una idea y centrar nuestro esfuerzo en otra parte.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About/Domain Section -->
+        <section class="about-section">
+            <div class="about-card">
+                <span class="tag">Concepto & Marca</span>
+                <h2>weigh-up.com</h2>
+                <p>
+                    Este dominio es propiedad de Emilio Moreno. Actualmente está reservado como una propuesta interactiva de crecimiento personal. Si te interesa colaborar en su desarrollo o estás interesado en adquirir este dominio, envíanos una oferta directa.
+                </p>
+                <a href="mailto:web@emiliomoreno.com?subject=Interés%20en%20weigh-up.com" class="btn btn-secondary" id="link-contact">
+                    Contactar / Enviar Propuesta
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 weigh-up.com — Un proyecto de <a href="https://emiliomoreno.com" class="footer-link">Emilio Moreno</a>.</p>
+        </div>
+    </footer>
+
+    <!-- JS Link -->
+    <script src="index.js"></script>
+</body>
+</html>

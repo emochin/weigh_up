@@ -1,0 +1,508 @@
+/* weigh-up.com Stylesheet */
+:root {
+    --bg-main: #0a0b0e;
+    --bg-card: rgba(20, 24, 33, 0.5);
+    --border-color: rgba(255, 255, 255, 0.05);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --color-pro: #a78bfa;     /* Purple for Pros */
+    --color-con: #fb7185;     /* Rose for Cons */
+    --color-warning: #fbbf24; /* Amber warning */
+    
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    
+    --transition-calm: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Background Ambient Glow */
+.ambient-glow {
+    position: fixed;
+    top: -10%;
+    right: 10%;
+    width: 70vw;
+    height: 70vw;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, rgba(251, 113, 133, 0.02) 50%, transparent 100%);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo-ext {
+    color: var(--color-pro);
+}
+
+.nav-back {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    gap: 0.5rem;
+    transition: var(--transition-calm);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+}
+
+.nav-back:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(-3px);
+}
+
+.back-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 5rem 0 3rem;
+    text-align: center;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-pro);
+    margin-bottom: 1.25rem;
+}
+
+.main-title {
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+}
+
+.serif-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Balance Scale Section */
+.scale-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+
+.scale-visual-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#decision-scale {
+    width: 100%;
+    height: auto;
+}
+
+.scale-status {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    transition: var(--transition-calm);
+}
+
+/* Inputs Form Grid */
+.decision-inputs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+
+.input-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-calm);
+}
+
+.card-pro {
+    border-left: 3px fill var(--color-pro);
+}
+
+.card-pro:focus-within {
+    border-color: rgba(167, 139, 250, 0.3);
+}
+
+.card-con:focus-within {
+    border-color: rgba(251, 113, 213, 0.3);
+}
+
+.input-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.card-pro h3 { color: var(--color-pro); }
+.card-con h3 { color: var(--color-con); }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    transition: var(--transition-calm);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.weight-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.weight-selector input[type="range"] {
+    flex-grow: 1;
+    accent-color: var(--color-pro);
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.card-con .weight-selector input[type="range"] {
+    accent-color: var(--color-con);
+}
+
+.weight-badge {
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+}
+
+.btn-add {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition-calm);
+}
+
+.pro-btn {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.pro-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+}
+
+.con-btn {
+    background: linear-gradient(135deg, #fb7185, #be123c);
+}
+
+.con-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(251, 113, 133, 0.2);
+}
+
+/* Factors Lists */
+.factors-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.factors-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.factors-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.factor-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.factor-text {
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+.factor-weight-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+}
+
+.card-pro .factor-weight-badge {
+    background: rgba(167, 139, 250, 0.1);
+    color: var(--color-pro);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+.card-con .factor-weight-badge {
+    background: rgba(251, 113, 133, 0.1);
+    color: var(--color-con);
+    border: 1px solid rgba(251, 113, 133, 0.2);
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: var(--transition-calm);
+}
+
+.btn-delete:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.btn-delete svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.philosophy-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: var(--transition-calm);
+}
+
+.philosophy-card:hover {
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.philosophy-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.philosophy-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* About / Domain Section */
+.about-section {
+    padding: 2rem 0 8rem;
+}
+
+.about-card {
+    background: radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.06) 0%, rgba(20, 24, 33, 0.2) 80%);
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    padding: 4rem;
+    text-align: center;
+}
+
+.about-card .tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-pro);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.about-card h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.about-card p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    background: #07080a;
+}
+
+.footer-container {
+    text-align: center;
+}
+
+.footer-container p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition-calm);
+}
+
+.footer-link:hover {
+    color: var(--color-pro);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    .decision-inputs-container {
+        grid-template-columns: 1fr;
+    }
+    .about-card {
+        padding: 3rem 1.5rem;
+    }
+    .about-card h2 {
+        font-size: 1.75rem;
+    }
+}
